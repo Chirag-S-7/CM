@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<header>
+
+    <div class="logo">
+        <span id="blue">Your</span>Event
+    </div>
+
+    <ul class="navbar">
+        <li><a href="/" class="tmp">Home</a></li>
+        <li><a href="/EventDetails">Events</a></li>
+        <li><a href="/Clubs">Clubs</a></li>
+        <li><a href="/ParticipantRegistration">Registration</a></li>
+    </ul>
+
+    <div class="header-btn">
+        <a href="/SignUp" class="sign-up">Admin Login</a>
+    </div>
+   
+</header>
+<body>
+    <div class="container" >
+        <div class="title" id="reg">Registration</div>
+        {% if messages %}
+            <ul class="messages">
+                <li>{{ messages }}</li>
+            </ul>
+        {% endif %}
+        <form action="/SignUp" method="post">
+            {% csrf_token %}
+            <div class="user-details">
+
+                <div class="input-box">
+                    <span class="details">Email</span>
+                    <input type="email" name="user_email" id="user_email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Password</span>
+                    <input type="password" name="user_password" id="user_password" placeholder="Enter your password" required>
+                </div>
+            </div>
+
+            <div class="btn-1">
+                <input type="submit" value="Enter">
+            </div>
+
+        </form>
+    </div>
+
+    {% if allowed == "yes" %}
+        <div class="container" id="host">
+            <div class="title">Event Hosted By User</div>
+            {% for event in event_list %}
+            <div style="margin-bottom: 15px;">
+                <br>
+                <p> <b>Host Email: </b>{{event.host_email}}</p>
+                <p> <b>Event I'd: </b>{{event.eventname}}</p>
+                <p> <b>Description: </b> {{event.dec}} </p>
+                <p> <b>Location: </b> {{event.location}} </p>
+                <p> <b>Start Date: </b> {{event.startDate}} </p>
+                <p> <b>End Date: </b> {{event.endDate}} </p>
+                <p> <b>Registration Deadline: </b>{{event.deadDate}} </p>
+                <p> <b>Number of Participants : </b> {{event.nop}}</p>
+                <br>
+                <hr>            
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="container">
+            <details>
+                <summary><span style="font-size:20px;">Show Participants List :</span></summary>
+                <form action="/ParticipantList" method="post">
+                    {% csrf_token %}
+                    <div class="user-details">
+        
+                        <div class="input-box">
+                            <span class="details">Event I'd</span>
+                            <input type="text" name="user_event" id="user_event" placeholder="Enter event name" required>
+                        </div>
+    
+                        <div class="button1">
+                            <input type="submit" value="Enter">
+                        </div>
+        
+                    </div>
+        
+                </form>
+            </details>
+
+            {% if allowed == "yes" %}
+            {% if messages %}
+            <ul class="messages">
+                <li>{{ messages }}</li>
+            </ul>
+            {% endif %}
+        {% endif %}
+
+        {% if allowed == "no" %}
+            <div class="title">List of Users</div>
+            {% for part in part_list %}
+            <div style="margin-bottom: 15px;">
+                <br>
+                <p> <b>Participant Name: </b>{{part.name}}</p>
+                <p> <b>Contact Number </b>{{part.contactnumber}}</p>
+                <p> <b>Participant Email </b> {{part.part_email}} </p>
+                <p> <b>Number of People </b> {{part.number}} </p>
+                <!-- <p> <b>Start Date: </b> {{event.startDate}} </p>
+                <p> <b>End Date: </b> {{event.endDate}} </p>
+                <p> <b>Registration Deadline: </b>{{event.deadDate}} </p>
+                <p> <b>Number of Participants : </b> {{event.nop}}</p>
+                <p> <b>Participant List : </b> <a href="#">view</a> </p> -->
+                <br>
+                <hr>            
+            </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+    {% endif %}
+
+</body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        scroll-padding: 2rem;
+        scroll-behavior: smooth;
+        list-style: none;
+        text-decoration: none;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    :root{
+        --main-color: #fe5b3d;
+        --second-color: #ffac38;
+        --text-color: #444;
+        --gradient: linear-gradient(#fe5b3d, #ffac38);
+    }
+
+    /* For custome scrollbar*/
+
+    /* html::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    html::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    html::-webkit-scrollbar-thumb {
+        background: var(--second-color);
+        border-radius: 0.5rem;
+    } */
+
+    header{
+        position: fixed;
+        width: 100%;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #eeeff1;
+        padding: 15px 100px;
+    }
+
+    .logo{
+        font-size: 25px;
+        /* letter-spacing: 5px; */
+        font-weight: 501;
+    }
+
+    #blue{
+        color: #74b9ff;
+    }
+
+    .header-btn a{
+        padding: 10px 20px;
+        color: var(--text-color);
+        font-weight: 1000;
+    }
+
+    .navbar{
+        display: flex;
+    }
+
+    .navbar li{
+        position: relative;
+    }
+
+    .navbar a{
+        font-weight: 505;
+        font-size: 1rem;
+        padding: 10px 20px;
+        color: var(--text-color);
+        font-weight: 501;
+    }
+
+    .navbar a::after{
+        content: '';
+        width: 0;
+        height: 3px;
+        background: var(--gradient);
+        position: relative;
+        bottom: -4px;
+        left: 0;
+        transition: 0.5s;
+    }
+
+    .navbar a:hover::after{
+        width: 10px;
+    }
+
+    .text{
+        /* background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVhf-NgNr15zirlnH-jnekL6r_Sk6jj5wqLQ&usqp=CAU); */
+        margin: auto;
+        color: white;
+        width: 50%;
+        padding: 50px;
+        margin-top:200px;
+        border: 3px solid white;
+        border-radius: 2rem;
+        padding: 70px 0;
+        text-align: center;
+        background: black;
+        opacity: 0.7;
+    }
+
+    .header-btn .sign-up{
+        background: #474fa0;
+        color: #fff;
+        border-radius: 0.5rem;
+    }
+
+    .header-btn .sign-up:hover{
+        background: var(--main-color);
+        /* opacity: 0.7; */
+    }
+
+    body{
+        display: block;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #FFFFE0, #5a38f3);
+        /* background: linear-gradient(135deg, #2a0e6b, #0b691b); */
+        position: relative;
+        background-repeat: no-repeat;
+    }
+
+    .container{
+        max-width: 700px;
+        width: 100%;
+        background: #fff;
+        padding: 25px 35px;
+        border-radius: 10px;
+        /* margin: 100px; */
+        /* display: block; */
+        position: relative;
+        margin: 200px 450px;
+    }
+
+    .container .title{
+        font-size: 30px;
+        text-align: center;
+        font-weight: 1000;
+        /* position: relative; */
+    }
+
+    .container1{
+        max-width: 700px;
+        width: 100%;
+        margin-top: 10px;
+        background: #fff;
+        padding: 25px 35px;
+        border-radius: 10px;
+        /* margin: 100px; */
+        display: block;
+        position: absolute;
+        margin-top: 10px;
+        /* bottom: 0px; */
+    }
+
+    .container1 .title{
+        font-size: 30px;
+        text-align: center;
+        font-weight: 1000;
+        /* position: relative; */
+    }
+
+    .container2{
+        max-width: 700px;
+        width: 100%;
+        margin-top: 10px;
+        background: #fff;
+        padding: 25px 35px;
+        border-radius: 10px;
+        /* margin: 100px; */
+        display: block;
+        position: absolute;
+    }
+
+    .container2 .title{
+        font-size: 30px;
+        text-align: center;
+        font-weight: 1000;
+        /* position: relative; */
+    }
+
+    .container form .user-details{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 12px 0 12px 0;
+    }
+
+    form .user-details .input-box {
+        width: calc(100%/2 - 20px);
+        margin-bottom: 15px;
+    }
+
+    form .user-details .input-box .details{
+        font-weight: 1000;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    form .user-details .input-box input{
+        height: 45px;
+        width: 100%;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding-left: 15px;
+        font-size: 15px;
+        border-bottom-width: 2px;
+    }
+
+    form .user-details .input-box textarea{
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding-left: 15px;
+        padding-top: 5px;
+        font-size: 15px;
+        border-bottom-width: 2px;
+    }
+
+    /* #host{
+        display: none;
+    } */
+
+    /* .button1{
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 130px;
+        color: #fff;
+        background: #fe5b3d;
+        font-weight: 1000;
+        font-size: 18px;
+        border-radius: 5px;
+        letter-spacing: 2px;
+        border: none;
+    }
+
+    .button1 .sign-up{
+        background: #474fa0;
+        color: #fff;
+        border-radius: 0.5rem;
+    }
+
+    .button .sign-up::after{
+        content: '';
+        width: 0;
+        height: 3px;
+        background: var(--gradient);
+        position: relative;
+        bottom: -4px;
+        left: 0;
+        transition: 0.5s;
+    }
+
+    .button1:hover{
+        opacity: 0.7;
+        cursor: pointer;
+    } */
+
+    form btn-1{
+        align-items: center;
+        justify-content: center;
+    }
+    
+
+    form .btn-1 input{
+        height: 50px;
+        width: 630px;
+        color: #fff;
+        background: #5a38f3;
+        font-weight: 1000;
+        font-size: 18px;
+        border-radius: 5px;
+        letter-spacing: 2px;
+        /* background: linear-gradient(135deg, #FFFFE0, #B22222); */
+        border: none;
+    }
+
+    form .btn-1 input:hover{
+        opacity: 0.7;
+        cursor: pointer;
+    }
+
+    form .button1 input{
+        margin-top: 30px;
+        margin-right: 10px;
+        height: 50px;
+        width: 230px;
+        color: #fff;
+        background: #fe5b3d;
+        font-weight: 1000;
+        font-size: 18px;
+        border-radius: 5px;
+        letter-spacing: 2px;
+        /* background: linear-gradient(135deg, #FFFFE0, #B22222); */
+        border: none;
+    }
+
+    form .button1 input:hover{
+        opacity: 0.7;
+        cursor: pointer;
+    }
+</style>
+</html>

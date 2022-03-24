@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Index</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <header>
+
+        <div class="logo">
+            <span id="blue">Your</span>Event
+        </div>
+
+        <ul class="navbar">
+            <li><a href="/" class="tmp">Home</a></li>
+            <li><a href="/EventDetails">Events</a></li>
+            <li><a href="/Clubs">Clubs</a></li>
+            <li><a href="/ParticipantRegistration">Registration</a></li>
+        </ul>
+
+        <div class="header-btn">
+            <a href="/SignUp" class="sign-up">Admin Login</a>
+        </div>
+       
+    </header>
+
+    <div class="img-slider">
+    </div>
+    
+    <!-- <div class="notice">
+        <marquee width="800px" direction="left" height="35px" style="background-color: yellow; color: red; width: 1535px; padding-top: 5px">
+            Notice Section.
+            </marquee>
+    </div> -->
+
+    <!-- <div class="tmp">
+        
+            <div class="contact-first">
+                <h2>XYZ</h2>
+                <h1><i class="fa fa-envelope" aria-hidden="true"></i><br></h1><p> xyz@abc.com</p><br>
+            </div>
+
+            <div class="contact-second">
+                <h2>Dhrumil Mevada</h2><br>
+                <h1><i class="fa fa-envelope" aria-hidden="true"></i><br></h1><p> 201901128@daiict.ac.in</p><br>
+            </div>
+
+            <div class="contact-third">
+                <h2>Malav Gajjar</h2><br>
+                <h1><i class="fa fa-envelope" aria-hidden="true"></i><br></h1><p> 201901129@daiict.ac.in</p><br>
+            </div>
+
+            
+    </div> -->
+    <!-- <section id="contact"> -->
+
+        <div class="contact-row" style="margin-top: 456px;">
+            <div class="contact-first">
+                <h2>Name</h2><br>
+                <h1><i class="fa fa-envelope" aria-hidden="true"></i><br></h1><p> ABC</p><br>
+            </div>
+
+            <div class="contact-second">
+                <h2>Contact Number</h2><br>
+                <h1><i class="fa fa-envelope" aria-hidden="true"></i><br></h1><p> 9876543321</p><br>
+            </div>
+
+            <div class="contact-third">
+                <h2>Email</h2><br>
+                <h1><i class="fa fa-envelope" aria-hidden="true"></i><br></h1><p> abc@xyz.com</p><br>
+            </div>
+
+            <div class="contact-fourth">
+                <h2>Address</h2><br>
+                <h1><i class="fa fa-envelope" aria-hidden="true"></i><br></h1><p> Kharta Mahel, Andher gali, Smashan ke samne</p><br>
+            </div>
+        </div>
+
+    <!-- </section> -->
+    <!-- <div class="text">
+        <h1>YourEvent Event Registration Management</h1>
+        <h4>YourEvent is web-based and hosted, flexible registration hub.</h4>
+    </div> -->
+
+
+    
+</body>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        scroll-padding: 2rem;
+        scroll-behavior: smooth;
+        list-style: none;
+        text-decoration: none;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    :root{
+        --main-color: #fe5b3d;
+        --second-color: #ffac38;
+        --text-color: #444;
+        --gradient: linear-gradient(#fe5b3d, #ffac38);
+    }
+
+    /* For custome scrollbar*/
+
+    /* html::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    html::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    html::-webkit-scrollbar-thumb {
+        background: var(--second-color);
+        border-radius: 0.5rem;
+    } */
+
+    header{
+        position: fixed;
+        width: 100%;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #D3D3D3;
+        padding: 15px 100px;
+    }
+
+    .img-slider{
+        width: 1535px;
+        height: 400px;
+        margin-top: -106px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-image: url('https://www.ramadajamshedpurbistupur.com/wp-content/uploads/2018/04/Club-Nights-Saturday-Events-Jamshedpur.jpg');
+        background-size: 100% 100%;
+        animation: slider 9s infinite linear;
+    }    
+
+    @keyframes slider{
+        0%{background-image: url('https://camo.envatousercontent.com/1c774d8017ba99ab46e3ab56efea0c6c5b0c0d21/687474703a2f2f636d736d6173746572732e6e65742f66696c65732f62757a7a2d636c75622f332e6a7067');}
+        35%{background-image: url('https://camo.envatousercontent.com/1c774d8017ba99ab46e3ab56efea0c6c5b0c0d21/687474703a2f2f636d736d6173746572732e6e65742f66696c65732f62757a7a2d636c75622f332e6a7067');}
+        75%{background-image: url('https://5.imimg.com/data5/PU/MF/MY-56749576/dance-party-dj-500x500.jpg');}
+    }
+
+    .notice{
+        position: absolute;
+        margin-top: 250px;
+    }
+
+    .logo{
+        font-size: 25px;
+        /* letter-spacing: 5px; */
+        font-weight: 501;
+    }
+
+    #blue{
+        color: #74b9ff;
+    }
+
+    .header-btn a{
+        padding: 10px 20px;
+        color: var(--text-color);
+        font-weight: 1000;
+    }
+
+    .navbar{
+        display: flex;
+        /* transition: transform .2s; Animation */
+        margin: 0px auto;
+        padding: 0px 50px;
+    }
+
+    .navbar li{
+        position: relative;
+    }
+
+    .navbar a{
+        font-weight: 505;
+        font-size: 1rem;
+        padding: 10px 20px;
+        color: var(--text-color);
+        font-weight: 501;
+    }
+
+    /* .navbar a::after{
+        content: '';
+        width: 0;
+        height: 3px;
+        background: var(--gradient);
+        position: relative;
+        bottom: -4px;
+        left: 0;
+        transition: 0.5s;
+    } */
+
+    /* .navbar a:hover{
+        font-size: 22px;
+        /* transform: scale(1.5);  */
+    /* }  */
+
+    .navbar li:hover{
+        transform: scale(1.5); 
+    }
+
+    .text{
+        /* background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVhf-NgNr15zirlnH-jnekL6r_Sk6jj5wqLQ&usqp=CAU); */
+        margin: auto;
+        color: white;
+        width: 50%;
+        padding: 50px;
+        margin-top:200px;
+        border: 3px solid white;
+        border-radius: 2rem;
+        padding: 70px 0;
+        text-align: center;
+        background: black;
+        opacity: 0.7;
+    }
+
+    /* / .tmp a{
+        transition: 0.5s all ease-in-out;
+    } */
+
+    /* .tmp a:hover{
+        font-size: 25px;
+    }  */
+
+    .header-btn .sign-up{
+        background: #474fa0;
+        color: #fff;
+        border-radius: 0.5rem;
+    }
+
+    .header-btn .sign-up:hover{
+        background: var(--main-color);
+        /* opacity: 0.7; */
+    }
+
+    body{
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #FFFFE0, #5a38f3);
+        /* background: linear-gradient(135deg, #FFFFE0, #B22222); */
+        background-color: rgb(222, 241, 241);
+    }
+
+    .container{
+        max-width: 700px;
+        width: 100%;
+        background: #fff;
+        padding: 25px 35px;
+        border-radius: 10px;
+    }
+
+    .container .title{
+        font-size: 30px;
+        text-align: center;
+        font-weight: 1000;
+        position: relative;
+    }
+
+    .container form .user-details{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 12px 0 12px 0;
+    }
+
+    form .user-details .input-box {
+        width: calc(100%/2 - 20px);
+        margin-bottom: 15px;
+    }
+
+    form .user-details .input-box .details{
+        font-weight: 1000;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    form .user-details .input-box input{
+        height: 45px;
+        width: 100%;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding-left: 15px;
+        font-size: 15px;
+        border-bottom-width: 2px;
+    }
+
+    form .user-details .input-box textarea{
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding-left: 15px;
+        padding-top: 5px;
+        font-size: 15px;
+        border-bottom-width: 2px;
+    }
+
+    form btn-1{
+        align-items: center;
+        justify-content: center;
+    }
+
+    form .btn-1 input{
+        height: 50px;
+        width: 630px;
+        color: #fff;
+        background: #fe5b3d;
+        font-weight: 1000;
+        font-size: 18px;
+        border-radius: 5px;
+        letter-spacing: 2px;
+        /* background: linear-gradient(135deg, #FFFFE0, #B22222); */
+        border: none;
+    }
+
+    form .btn-1 input:hover{
+        opacity: 0.7;
+        cursor: pointer;
+    }
+
+    footer{
+        color: black;
+        float: left;
+        position: absolute;
+        margin-top: 650px;
+    }
+
+    #contact{
+    padding: 30px 0px;
+}
+
+.contact-row{
+    padding: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-first{
+    padding-top: 50px;
+    /* flex-basis: 50%; */
+    /* max-width: 450px; */
+    padding-right: 100px;
+    padding-left: 0px;
+}
+
+.service-info{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.contact-second{
+    padding-top: 50px;
+    /* flex-basis: 50%; */
+    padding-right: 100px;
+}
+
+.contact-third{
+    padding-top: 50px;
+    /* flex-basis: 50%; */
+    padding-right: 100px;
+}
+
+.contact-fourth{
+    padding-top: 50px;
+    /* flex-basis: 50%; */
+}
+
+.fa-address-book{
+    padding: 7px;
+}
+
+.fa-envelope{
+    padding: 7px;
+}
+
+
+
+</style>
+
+</html>
